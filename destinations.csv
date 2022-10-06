@@ -1,0 +1,164 @@
+name,slug,path,is_port
+China Main,china_main,china_main,false
+Northern Europe,northern_europe,northern_europe,false
+Russia North West,russia_north_west,northern_europe.russia_north_west,false
+North Europe Main,north_europe_main,northern_europe.north_europe_main,false
+North Europe Sub,north_europe_sub,northern_europe.north_europe_sub,false
+China East Main,china_east_main,china_main.china_east_main,false
+China South Main,china_south_main,china_main.china_south_main,false
+Baltic,baltic,northern_europe.baltic,false
+Scandinavia,scandinavia,northern_europe.scandinavia,false
+China North Main,china_north_main,china_main.china_north_main,false
+Stockholm Area,stockholm_area,northern_europe.scandinavia.stockholm_area,false
+UK Sub,uk_sub,northern_europe.north_europe_sub.uk_sub,false
+Finland Main,finland_main,northern_europe.baltic.finland_main,false
+Baltic Main,baltic_main,northern_europe.baltic.baltic_main,false
+Poland Main,poland_main,northern_europe.baltic.poland_main,false
+Kattegat,kattegat,northern_europe.scandinavia.kattegat,false
+Norway North West,norway_north_west,northern_europe.scandinavia.norway_north_west,false
+Norway South East,norway_south_east,northern_europe.scandinavia.norway_south_east,false
+Norway South West,norway_south_west,northern_europe.scandinavia.norway_south_west,false
+UK Main,uk_main,northern_europe.north_europe_main.uk_main,false
+Chiwan,CNCWN,china_main.china_south_main.CNCWN,true
+Shannon,IESNN,northern_europe.north_europe_sub.IESNN,true
+Le Verdon-sur-Mer,FRLVE,northern_europe.north_europe_sub.FRLVE,true
+Oslo,NOOSL,northern_europe.scandinavia.norway_south_east.NOOSL,true
+Portsmouth,GBPME,northern_europe.north_europe_sub.uk_sub.GBPME,true
+Stavanger,NOSVG,northern_europe.scandinavia.norway_south_west.NOSVG,true
+Helsingfors (Helsinki),FIHEL,northern_europe.baltic.finland_main.FIHEL,true
+Måløy,NOMAY,northern_europe.scandinavia.NOMAY,true
+Lyon,FRLIO,northern_europe.north_europe_sub.FRLIO,true
+Halmstad,SEHAD,northern_europe.scandinavia.kattegat.SEHAD,true
+Tilbury,GBTIL,northern_europe.north_europe_sub.uk_sub.GBTIL,true
+Copenhagen (København),DKCPH,northern_europe.scandinavia.kattegat.DKCPH,true
+Fredrikstad,NOFRK,northern_europe.scandinavia.norway_south_east.NOFRK,true
+Yantai,CNYAT,china_main.china_east_main.CNYAT,true
+Shenzhen,CNSNZ,china_main.china_south_main.CNSNZ,true
+Skien,NOSKE,northern_europe.scandinavia.NOSKE,true
+Wilhelmshaven,DEWVN,northern_europe.north_europe_sub.DEWVN,true
+Kristiansund,NOKSU,northern_europe.scandinavia.norway_north_west.NOKSU,true
+Malmö,SEMMA,northern_europe.scandinavia.kattegat.SEMMA,true
+Brahestad (Raahe),FIRAA,northern_europe.baltic.FIRAA,true
+Dunkerque,FRDKK,northern_europe.north_europe_sub.FRDKK,true
+London,GBLON,northern_europe.north_europe_sub.uk_sub.GBLON,true
+Svelgen,NOSVE,northern_europe.scandinavia.norway_north_west.NOSVE,true
+Bassens,FRBAS,northern_europe.north_europe_sub.FRBAS,true
+Moerdijk,NLMOE,northern_europe.north_europe_sub.NLMOE,true
+Dublin,IEDUB,northern_europe.north_europe_sub.IEDUB,true
+Dieppe,FRDPE,northern_europe.north_europe_sub.FRDPE,true
+Karleby (Kokkola),FIKOK,northern_europe.baltic.FIKOK,true
+Rotterdam,NLRTM,northern_europe.north_europe_main.NLRTM,true
+London Thamesport,GBLTP,northern_europe.north_europe_sub.uk_sub.GBLTP,true
+Zeebrugge,BEZEE,northern_europe.north_europe_main.BEZEE,true
+Uleåborg (Oulu),FIOUL,northern_europe.baltic.FIOUL,true
+Fusa,NOFUS,northern_europe.scandinavia.NOFUS,true
+Bougenais,FRNEG,northern_europe.north_europe_sub.FRNEG,true
+Bremen,DEBRE,northern_europe.north_europe_sub.DEBRE,true
+Norrköping,SENRK,northern_europe.scandinavia.stockholm_area.SENRK,true
+Kronshtadt,RUKDT,northern_europe.baltic.RUKDT,true
+La Rochelle,FRLRH,northern_europe.north_europe_sub.FRLRH,true
+Mantyluoto,FIMTY,northern_europe.baltic.FIMTY,true
+Ikornnes,NOIKR,northern_europe.scandinavia.NOIKR,true
+Fredericia,DKFRC,northern_europe.scandinavia.kattegat.DKFRC,true
+Håvik,NOHVI,northern_europe.scandinavia.norway_south_west.NOHVI,true
+Montoir-de-Bretagne,FRMTX,northern_europe.north_europe_sub.FRMTX,true
+Kotka,FIKTK,northern_europe.baltic.finland_main.FIKTK,true
+Muuga,EEMUG,northern_europe.baltic.EEMUG,true
+Szczecin,PLSZZ,northern_europe.baltic.PLSZZ,true
+Straume Industriområde,NOUME,northern_europe.scandinavia.norway_south_west.NOUME,true
+Shekou,CNSHK,china_main.china_south_main.CNSHK,true
+Teesport,GBTEE,northern_europe.north_europe_sub.uk_sub.GBTEE,true
+Bordeaux,FRBOD,northern_europe.north_europe_sub.FRBOD,true
+Le Havre,FRLEH,northern_europe.north_europe_main.FRLEH,true
+Hong Kong,HKHKG,china_main.china_south_main.HKHKG,true
+Södertälje,SESOE,northern_europe.scandinavia.stockholm_area.SESOE,true
+Halden,NOHAL,northern_europe.scandinavia.NOHAL,true
+Gijón,ESGIJ,northern_europe.north_europe_sub.ESGIJ,true
+Berlevåg,NOBVG,northern_europe.scandinavia.NOBVG,true
+Cork,IEORK,northern_europe.north_europe_sub.IEORK,true
+Bremerhaven,DEBRV,northern_europe.north_europe_main.DEBRV,true
+Zaragoza,ESZAZ,northern_europe.north_europe_sub.ESZAZ,true
+Wallhamn,SEWAL,northern_europe.scandinavia.SEWAL,true
+Ningbo,CNNBO,china_main.china_east_main.CNNBO,true
+Florø,NOFRO,northern_europe.scandinavia.NOFRO,true
+Dalian,CNDAL,china_main.china_north_main.CNDAL,true
+Manchester,GBMNC,northern_europe.north_europe_sub.uk_sub.GBMNC,true
+Gdynia,PLGDY,northern_europe.baltic.poland_main.PLGDY,true
+Shanghai,CNSGH,china_main.china_east_main.CNSGH,true
+Åbo (Turku),FITKU,northern_europe.baltic.FITKU,true
+Hull,GBHUL,northern_europe.north_europe_sub.uk_sub.GBHUL,true
+Vigo,ESVGO,northern_europe.north_europe_sub.ESVGO,true
+Helsingborg,SEHEL,northern_europe.scandinavia.kattegat.SEHEL,true
+Molde,NOMOL,northern_europe.scandinavia.norway_north_west.NOMOL,true
+Tønsberg,NOTON,northern_europe.scandinavia.norway_south_east.NOTON,true
+Huadu Pt,CNHDG,china_main.china_south_main.CNHDG,true
+Antwerpen,BEANR,northern_europe.north_europe_main.BEANR,true
+Rauma (Raumo),FIRAU,northern_europe.baltic.finland_main.FIRAU,true
+Gdansk,PLGDN,northern_europe.baltic.poland_main.PLGDN,true
+Drammen,NODRM,northern_europe.scandinavia.norway_south_east.NODRM,true
+Sandnes,NOSAS,northern_europe.scandinavia.norway_south_west.NOSAS,true
+Kristiansand,NOKRS,northern_europe.scandinavia.norway_south_east.NOKRS,true
+Sunndalsøra,NOSUN,northern_europe.scandinavia.NOSUN,true
+Belfast,GBBEL,northern_europe.north_europe_sub.uk_sub.GBBEL,true
+Århus,DKAAR,northern_europe.scandinavia.kattegat.DKAAR,true
+Rouen,FRURO,northern_europe.north_europe_sub.FRURO,true
+London Gateway Port,GBLGP,northern_europe.north_europe_sub.uk_sub.GBLGP,true
+Åhus,SEAHU,northern_europe.scandinavia.SEAHU,true
+Brevik,NOBVK,northern_europe.scandinavia.norway_south_east.NOBVK,true
+Antibes,FRANT,northern_europe.north_europe_sub.FRANT,true
+Arkhangelsk,RUARH,northern_europe.russia_north_west.RUARH,true
+Tromsø,NOTOS,northern_europe.scandinavia.NOTOS,true
+Gothenburg (Göteborg),SEGOT,northern_europe.scandinavia.kattegat.SEGOT,true
+Imatra,FIIMA,northern_europe.baltic.FIIMA,true
+Kemi/Torneå (Kemi/Tornio),FIKEM,northern_europe.baltic.FIKEM,true
+Grangemouth,GBGRG,northern_europe.north_europe_sub.uk_sub.GBGRG,true
+Tallinn,EETLL,northern_europe.baltic.baltic_main.EETLL,true
+Fredrikshamn (Hamina),FIHMN,northern_europe.baltic.FIHMN,true
+Saint Petersburg (ex Leningrad),RULED,northern_europe.baltic.RULED,true
+Liverpool,GBLIV,northern_europe.north_europe_sub.uk_sub.GBLIV,true
+Guangzhou,CNGGZ,china_main.china_south_main.CNGGZ,true
+Trondheim,NOTRD,northern_europe.scandinavia.norway_north_west.NOTRD,true
+Dunkirk,FRIRK,northern_europe.north_europe_sub.FRIRK,true
+Nantes,FRNTE,northern_europe.north_europe_sub.FRNTE,true
+Qingdao,CNQIN,china_main.china_east_main.CNQIN,true
+Lugovoye,RULUG,northern_europe.baltic.RULUG,true
+Bristol,GBBRS,northern_europe.north_europe_sub.uk_sub.GBBRS,true
+Goole,GBGOO,northern_europe.north_europe_sub.uk_sub.GBGOO,true
+Lianyungang,CNLYG,china_main.china_east_main.CNLYG,true
+Thamesport,GBTHP,northern_europe.north_europe_sub.uk_sub.GBTHP,true
+Haugesund,NOHAU,northern_europe.scandinavia.norway_south_west.NOHAU,true
+Riga,LVRIX,northern_europe.baltic.baltic_main.LVRIX,true
+Aalborg,DKAAL,northern_europe.scandinavia.DKAAL,true
+Felixstowe,GBFXT,northern_europe.north_europe_main.uk_main.GBFXT,true
+Moss,NOMSS,northern_europe.scandinavia.norway_south_east.NOMSS,true
+Amsterdam,NLAMS,northern_europe.north_europe_sub.NLAMS,true
+Thorshavn,FOTHO,northern_europe.scandinavia.FOTHO,true
+Høyanger,NOHYR,northern_europe.scandinavia.NOHYR,true
+Tananger,NOTAE,northern_europe.scandinavia.NOTAE,true
+Xingang (Tianjin New Pt),CNTXG,china_main.china_north_main.CNTXG,true
+Gävle,SEGVX,northern_europe.scandinavia.stockholm_area.SEGVX,true
+Southampton,GBSOU,northern_europe.north_europe_main.uk_main.GBSOU,true
+Xiamen,CNXAM,china_main.china_east_main.CNXAM,true
+Ust'-Luga,RUULU,northern_europe.baltic.RUULU,true
+Bergen,NOBGO,northern_europe.scandinavia.norway_south_west.NOBGO,true
+"Marin, Pontevedra",ESMPG,northern_europe.north_europe_sub.ESMPG,true
+Hamburg,DEHAM,northern_europe.north_europe_main.DEHAM,true
+Oxelösund,SEOXE,northern_europe.scandinavia.stockholm_area.SEOXE,true
+Larvik,NOLAR,northern_europe.scandinavia.norway_south_east.NOLAR,true
+Yantian,CNYTN,china_main.china_south_main.CNYTN,true
+Reykjavík,ISREY,northern_europe.scandinavia.ISREY,true
+Bilbao,ESBIO,northern_europe.north_europe_sub.ESBIO,true
+Grundartangi,ISGRT,northern_europe.scandinavia.ISGRT,true
+Gjemnes,NOGJM,northern_europe.scandinavia.NOGJM,true
+Brest,FRBES,northern_europe.north_europe_sub.FRBES,true
+Orkanger,NOORK,northern_europe.scandinavia.norway_north_west.NOORK,true
+Ålesund,NOAES,northern_europe.scandinavia.norway_north_west.NOAES,true
+Stockholm,SESTO,northern_europe.scandinavia.stockholm_area.SESTO,true
+Immingham,GBIMM,northern_europe.north_europe_sub.uk_sub.GBIMM,true
+Klaipeda,LTKLJ,northern_europe.baltic.baltic_main.LTKLJ,true
+Kaliningrad,RUKGD,northern_europe.baltic.RUKGD,true
+Greenock,GBGRK,northern_europe.north_europe_sub.uk_sub.GBGRK,true
+Piteå,SEPIT,northern_europe.scandinavia.SEPIT,true
+Vitoria-Gasteiz,ESVIT,northern_europe.north_europe_sub.ESVIT,true
+Esbjerg,DKEBJ,northern_europe.scandinavia.DKEBJ,true
+South Shields,GBSSH,northern_europe.north_europe_sub.uk_sub.GBSSH,true
