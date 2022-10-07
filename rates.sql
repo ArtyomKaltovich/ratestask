@@ -34,8 +34,8 @@ CREATE TABLE prices (
     price integer NOT NULL
 );
 
-COPY destinations(orig_code, dest_code, day, price)
-FROM '/destinations.csv'
+COPY prices(orig_code, dest_code, day, price)
+FROM '/prices.csv'
 DELIMITER ','
 CSV HEADER;
 
