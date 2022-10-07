@@ -23,3 +23,15 @@ DELIMITER ','
 CSV HEADER;
 
 create extension ltree;
+
+CREATE TABLE prices (
+    orig_code text NOT NULL,
+    dest_code text NOT NULL,
+    day date NOT NULL,
+    price integer NOT NULL
+);
+
+COPY destinations(orig_code, dest_code, day, price)
+FROM '/destinations.csv'
+DELIMITER ','
+CSV HEADER;
