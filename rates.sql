@@ -20,7 +20,7 @@ CREATE TABLE destinations (
   PRIMARY KEY (id)
 );
 
-COPY destinations(name, slug, path)
+COPY destinations(name, slug, path, is_port)
 FROM '/destinations.csv'
 DELIMITER ','
 CSV HEADER;
