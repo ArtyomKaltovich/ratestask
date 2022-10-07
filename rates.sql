@@ -39,4 +39,5 @@ FROM '/prices.csv'
 DELIMITER ','
 CSV HEADER;
 
-CREATE INDEX prices_code_idx ON prices USING hash (orig_code, dest_code);
+CREATE INDEX prices_orig_code_idx ON prices USING hash (orig_code);
+CREATE INDEX prices_dest_code_idx ON prices USING hash (dest_code);
