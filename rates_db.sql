@@ -9,11 +9,13 @@ SET client_min_messages = warning;
 SET row_security = off;
 -- end of copy
 
+create extension ltree;
+
 CREATE TABLE destinations (
   id SERIAL,
   name VARCHAR(50),
   slug VARCHAR(50),
-  path VARCHAR(250),
+  path ltree,
   PRIMARY KEY (id)
 );
 
@@ -22,7 +24,7 @@ FROM '/destinations.csv'
 DELIMITER ','
 CSV HEADER;
 
-create extension ltree;
+CREATE INDEX path_gist_idx ON destinations USING GIST (path);
 
 CREATE TABLE prices (
     orig_code text NOT NULL,
@@ -35,3 +37,5 @@ COPY destinations(orig_code, dest_code, day, price)
 FROM '/destinations.csv'
 DELIMITER ','
 CSV HEADER;
+
+CREATE INDEX prices_code_idx ON prices USING hash (orig_code, dest_code);
