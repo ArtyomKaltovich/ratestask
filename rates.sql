@@ -16,6 +16,7 @@ CREATE TABLE destinations (
   name VARCHAR(50),
   slug VARCHAR(50),
   path ltree,
+  is_port BOOLEAN,
   PRIMARY KEY (id)
 );
 
