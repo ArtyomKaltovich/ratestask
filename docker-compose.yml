@@ -5,5 +5,7 @@ services:
       - "5432:5432"
   routes_api_service:
     build: routes_api_service
+    depends_on:
+      - db
     ports:
       - "8080:8080"
