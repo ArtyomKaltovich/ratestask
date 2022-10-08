@@ -12,7 +12,11 @@ from settings import Settings
 def main():
     settings = Settings()
     repo = RatesRepoPostgres(
-        settings.dbname, settings.user, settings.password, settings.host, settings.port
+        settings.dbname,
+        settings.dbuser,
+        settings.dbpassword,
+        settings.dbhost,
+        settings.dbport,
     )
     with repo.connection():
         app = create_app(repo, settings.debug)
@@ -21,7 +25,7 @@ def main():
             app.run(debug=settings.debug)
         else:
             logging.info("starting production service...")
-            serve(app, host="0.0.0.0", port=8080)
+            serve(app, host=settings.api_host, port=settings.api_port)
 
 
 if __name__ == "__main__":
