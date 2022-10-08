@@ -4,6 +4,26 @@ a route between two destinations (ports or regions)
 
 The project consist of two folders: db and routes_api_service.
 
+# Getting started
+
+Both service and db can be started with docker compose
+
+```sh
+docker compose up
+```
+
+to check the service, you can run following command:
+
+```sh
+curl "http://localhost:8080/rates?date_from=2016-01-02&date_to=2016-01-10&origin=china_main&destination=north_europe_main"
+```
+
+or just open this link in your browser.
+
+In case of any problem, please check you env settings,
+you can check list of env setting for api in `routes_api_service/settings.py`.
+And do not hesitate to ask me `kaltovichartyom@gmail.com` :). 
+
 # Data definition
 
 Data is organized in two tables:
@@ -91,31 +111,31 @@ and `tests\perf_test` folders.
 
 Docker containers are provided for running services. To build it you should run
 
-```bash
+```sh
 docker build -t ratestask .
 ```
 
 This will create a container with the name *ratestask*
 
-# Running service
+# Running Containers
 
 ## DB container
 
 You can start db container in the following way (assuming it called ratestask):
 
-```bash
+```sh
 docker run -p 0.0.0.0:5432:5432 --name ratestask ratestask
 ```
 
 It is started with the default user `postgres` and `ratestask` password.
 
-```bash
+```sh
 PGPASSWORD=ratestask psql -h 127.0.0.1 -U postgres
 ```
 
 alternatively, use `docker exec` if you do not have `psql` installed:
 
-```bash
+```sh
 docker exec -e PGPASSWORD=ratestask -it ratestask psql -U postgres
 ```
 
@@ -129,8 +149,29 @@ with a clean state.
 
 You can start api container in the following way (assuming it called rates_api_service):
 
-```bash
+```sh
 docker run -it -p 8080:8080 --name rates_api_container rates_api_service
+```
+
+### Run without docker
+
+The service uses requirements.txt file for describing items necessary to run api.
+Basic installation can be done with:
+
+```sh
+pip install requirements.txt
+```
+
+If you want to run tests, you should install dev dependencies:
+
+```sh
+pip install requirements-dev.txt
+```
+
+The service can be started with following command:
+
+```sh
+python routes_api_service/main.py
 ```
 
 ### nox
