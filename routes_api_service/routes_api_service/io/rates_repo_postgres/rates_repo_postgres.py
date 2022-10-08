@@ -49,8 +49,22 @@ class RatesRepoPostgres(RatesRepoABC):
         date_from,
         date_to,
     ) -> List[Rate]:
-        cur = self._conn.cursor()
-        cur.execute(
-            f"execute {RATES_QUERY_PLAN_NAME} ('*.{origin}.*', '*.{destination}.*', '{date_from}', '{date_to}')"
-        )
-        return [Rate(day=r[0], average_price=r[1]) for r in cur]
+        """get average rates for route and date interval
+        Usage
+        -----
+        repo = RatesRepoPostgres(...)
+        with repo.connection():
+            repo.get_rates(...)
+        """
+        try:
+            cur = self._conn.cursor()  # type: ignore [attr-defined] # error: "None" has no attribute "cursor"
+            cur.execute(
+                f"execute {RATES_QUERY_PLAN_NAME} "
+                f"('*.{origin}.*', '*.{destination}.*', '{date_from}', '{date_to}')"
+            )
+            return [Rate(day=r[0], average_price=r[1]) for r in cur]
+        except AttributeError:
+            raise TypeError(
+                "Connection to db doesn't exist. "
+                "Please execute this method inside inside connection context manager"
+            )
