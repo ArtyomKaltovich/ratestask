@@ -1,3 +1,5 @@
+import logging
+
 from waitress import serve
 
 from routes_api_service.app import create_app
@@ -15,8 +17,10 @@ def main():
     with repo.connection():
         app = create_app(repo, settings.debug)
         if settings.debug:
+            logging.info("starting dev service...")
             app.run(debug=settings.debug)
         else:
+            logging.info("starting production service...")
             serve(app, host="0.0.0.0", port=8080)
 
 
