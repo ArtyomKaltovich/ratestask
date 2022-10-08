@@ -125,6 +125,14 @@ with a clean state.
 
 ## API Service
 
+### Docker container
+
+You can start api container in the following way (assuming it called rates_api_service):
+
+```bash
+docker run -p 0.0.0.0:5000:5000 --name rates_api_service rates_api_service
+```
+
 ### nox
 
 [nox](https://nox.thea.codes/en/stable/) is used for running test and formatters.

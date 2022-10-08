@@ -1,3 +1,4 @@
 Flask==2.2.2
 psycopg2==2.9.4
 pydantic==1.10.2
+waitress==2.1.2
