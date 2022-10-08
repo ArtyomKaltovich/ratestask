@@ -15,7 +15,9 @@ RATES_QUERY_PLAN_NAME = "rates_query_plan"
 
 
 class RatesRepoPostgres(RatesRepoABC):
-    def __init__(self, dbname: str, user: str, password: str, host: str, port: int = 5432):
+    def __init__(
+        self, dbname: str, user: str, password: str, host: str, port: int = 5432
+    ):
         self._dbname = dbname
         self._user = user
         self._password = password
@@ -26,7 +28,11 @@ class RatesRepoPostgres(RatesRepoABC):
     @contextmanager
     def connection(self):
         self._conn = psycopg2.connect(
-            dbname=self._dbname, user=self._user, password=self._password, host=self._host, port=self._port
+            dbname=self._dbname,
+            user=self._user,
+            password=self._password,
+            host=self._host,
+            port=self._port,
         )
         try:
             cur = self._conn.cursor()
@@ -37,12 +43,14 @@ class RatesRepoPostgres(RatesRepoABC):
 
     @lru_cache(10000)
     def get_rates(
-            self,
-            origin,
-            destination,
-            date_from,
-            date_to,
+        self,
+        origin,
+        destination,
+        date_from,
+        date_to,
     ) -> List[Rate]:
         cur = self._conn.cursor()
-        cur.execute(f"execute {RATES_QUERY_PLAN_NAME} ('*.{origin}.*', '*.{destination}.*', '{date_from}', '{date_to}')")
+        cur.execute(
+            f"execute {RATES_QUERY_PLAN_NAME} ('*.{origin}.*', '*.{destination}.*', '{date_from}', '{date_to}')"
+        )
         return [Rate(day=r[0], average_price=r[1]) for r in cur]

@@ -183,11 +183,11 @@ class Settings(BaseSettings):
 
 
 def gen_request_arg(
-        ports,
-        regions,
-        destinations,
-        regions_rate=0.1,
-        wrong_codes_rate=0.1,
+    ports,
+    regions,
+    destinations,
+    regions_rate=0.1,
+    wrong_codes_rate=0.1,
 ):
     start_date = random.randrange(1, 20)
     end_date = random.randrange(start_date, 30)
@@ -205,34 +205,36 @@ def gen_request_arg(
         origin = random.choice(ports)
         destination = random.choice(ports)
         # There can be the same values, but why not?
-    return dict(date_from=f"2016-01-{start_date}", date_to=f"2016-01-{end_date}", origin=origin, destination=destination)
+    return dict(
+        date_from=f"2016-01-{start_date}",
+        date_to=f"2016-01-{end_date}",
+        origin=origin,
+        destination=destination,
+    )
 
 
 async def main(
-        url,
-        ports=PORTS,
-        regions=REGIONS,
-        regions_rate=0.1,
-        wrong_codes_rate=0.1,
-        n_requests=1000,
+    url,
+    ports=PORTS,
+    regions=REGIONS,
+    regions_rate=0.1,
+    wrong_codes_rate=0.1,
+    n_requests=1000,
 ):
     destinations = ports + regions
     test_data = [
-        gen_request_arg(ports, regions, destinations, regions_rate, wrong_codes_rate) for _ in range(n_requests)
+        gen_request_arg(ports, regions, destinations, regions_rate, wrong_codes_rate)
+        for _ in range(n_requests)
     ]
     async with httpx.AsyncClient() as client:
         start = perf_counter()
-        results = await asyncio.gather(
-            *[
-                client.get(url, params=t) for t in test_data
-            ]
-        )
+        results = await asyncio.gather(*[client.get(url, params=t) for t in test_data])
         finish = perf_counter()
         print(f"{n_requests} requests takes {(finish - start) / 1_000} ms")
         n_error = sum(r.status_code != 200 for r in results)
         print(f"Number of errors: {n_error}")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     url = Settings().url
     asyncio.run(main(url))
