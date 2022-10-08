@@ -1,51 +1,67 @@
+# Description
+HTTP-based API returns a list with the average prices for each day on 
+a route between two destinations (ports or regions)
+
+The project consist of two folders: db and routes_api_service.
+
 # Data definition
 
-We are providing you with a small set of simplified real-world data. A
-database dump is provided that includes the following information:
+Data is organized in two tables:
 
-## Ports
+## Destinations
 
-Information about ports, including:
+|name|slug|path|is_port|
+|----|----|----|-------|
+|China Main|china_main|china_main|false|
+|Northern Europe|northern_europe|northern_europe|false|
+|Reykjavík|ISREY|northern_europe.scandinavia.ISREY|true|
+|Bilbao|ESBIO|northern_europe.north_europe_sub.ESBIO|true|
 
-* 5-character port code
-* Port name
-* Slug describing which region the port belongs to
+It contains routes destinations, which can be either port, or regions
+containing several ports or other regions.
 
-## Regions
+``path`` column defines destination hierarchy, 
+while ``is_port`` flag is used to differentiate ports and regions.
+``name`` and ``slug`` seems to be self-explanatory.
 
-A hierarchy of regions, including:
-
-* Slug - a machine-readable form of the region name
-* The name of the region
-* Slug describing which parent region the region belongs to
-
-Note that a region can have both ports and regions as children, and the region
-tree does not have a fixed depth.
 
 ## Prices
 
-Individual daily prices between ports, in USD.
+|orig_code|dest_code|day|price|
+|---------|---------|---|-----|
+|CNGGZ|EETLL|2016-01-01|1244|
+|CNGGZ|EETLL|2016-01-01|1140|
 
-* 5-character origin port code
-* 5-character destination port code
-* The day for which the price is valid
-* The price in USD
+## Other
 
-# Assignment: HTTP-based API
+The db contains 3 indexes for now: for ``path`` column of ``Destinations``
+and for ``orig_code`` and ``dest_code`` of ``Prices``.
+No triggers, procedures or constraints presented for now.
 
-Develop an [HTTP-based API](#task-1-http-based-api) capable of handling the GET request described below. Our stack is based on Flask, but you are free to choose any Python framework you like. All data returned is expected to be in JSON format. Please demonstrate your knowledge of SQL (as opposed to using ORM querying tools).
+> **_NOTE:_**  You can see db creating scrypt in `rates.sql` file.
 
+# HTTP-based API
 
-Implement an API endpoint that takes the following parameters:
+`routes_api_service` contains HTTP-based API capable of handling the GET 
+request described below:
+
+API endpoint takes the following parameters:
 
 * date_from
 * date_to
 * origin
 * destination
 
-and returns a list with the average prices for each day on a route between port codes *origin* and *destination*. Return an empty value (JSON null) for days on which there are less than 3 prices in total.
+and returns a list with the average prices for each day on a route between port codes 
+*origin* and *destination*. 
+Return an empty value (JSON null) for days on which there are less than 
+*3* prices in total.
 
-Both the *origin, destination* params accept either port codes or region slugs, making it possible to query for average prices per day between geographic groups of ports.
+Both the *origin, destination* params accept either port codes or region slugs, 
+making it possible to query for average prices per day between geographic 
+groups of ports.
+
+## Usage
 
     curl "http://127.0.0.1/rates?date_from=2016-01-01&date_to=2016-01-10&origin=CNSGH&destination=north_europe_main"
 
@@ -65,57 +81,33 @@ Both the *origin, destination* params accept either port codes or region slugs, 
         ...
     ]
 
-# Extra details
+## Extra details
 
-* It usually takes 2 - 6 hours to complete this task for a developer with 2+ years of experience in building APIs with Python and SQL.
-
-* Our key evaluation criteria:
-    - Ease of setup and testing
-    - Code clarity and simplicity
-    - Comments where appropriate
-    - Code organisation
-    - Tests
-
-* Keep your solution in a Version Control System of your
-  choice. *Provide the solution as a public repository that can be
-  easily cloned by our development team.*
-
-* Provide any instructions needed to set up the system in `README.md`.
-
-* Ensure the API handles errors and edge cases properly.
-
-* Use dates in YYYY-MM-DD format for the API. There is no need for more
-  complicated date processing.
-
-* You are encouraged to modify or extend the database schema if you think a different model fits the task better.
-
-* If you have any questions, please don't hesitate to contact us
-
-* Please let us know how much time you spent on the task, and of any difficulties that you ran into.
-
+The api service is implemented in python with usage of Flask framework.
+It also contains integration and performance tests in `tests\integration_tests`
+and `tests\perf_test` folders.
 
 # Initial setup
 
-We have provided a simple Docker setup for you, which will start a
-PostgreSQL instance populated with the assignment data. You don't have
-to use it, but you might find it convenient. If you decide to use
-something else, make sure to include instructions on how to set it up.
-
-You can execute the provided Dockerfile by running:
+Docker containers are provided for running services. To build it you should run
 
 ```bash
 docker build -t ratestask .
 ```
 
-This will create a container with the name *ratestask*, which you can
-start in the following way:
+This will create a container with the name *ratestask*
+
+# Running service
+
+## DB container
+
+You can start db container in the following way (assuming it called ratestask):
 
 ```bash
 docker run -p 0.0.0.0:5432:5432 --name ratestask ratestask
 ```
 
-You can connect to the exposed Postgres instance on the Docker host IP address,
-usually *127.0.0.1* or *172.17.0.1*. It is started with the default user `postgres` and `ratestask` password.
+It is started with the default user `postgres` and `ratestask` password.
 
 ```bash
 PGPASSWORD=ratestask psql -h 127.0.0.1 -U postgres
@@ -130,3 +122,40 @@ docker exec -e PGPASSWORD=ratestask -it ratestask psql -U postgres
 Keep in mind that any data written in the Docker container will
 disappear when it shuts down. The next time you run it, it will start
 with a clean state.
+
+## API Service
+
+### nox
+
+[nox](https://nox.thea.codes/en/stable/) is used for running test and formatters.
+
+- to check existed commands run:
+
+```sh
+nox -l
+```
+
+- to run any session type:
+
+```sh
+nox -s black
+```
+
+> **_NOTE:_**  nox create separated virtual environment for every command
+> at every run. To avoid to add `-r` flag to your commands e.g.:
+
+```sh
+nox -s black -r
+```
+
+To run all checks type:
+
+```sh
+nox
+```
+
+> **_NOTE:_** Integration and performance tests execute
+> http requests to API, and
+> for now nox doesn't support shared virtual environments,
+> so every check will use their own ones.
+> So such command can take some time.
