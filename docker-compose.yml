@@ -6,4 +6,4 @@ services:
   routes_api_service:
     build: routes_api_service
     ports:
-      - "5432:5432"
+      - "8080:8080"
