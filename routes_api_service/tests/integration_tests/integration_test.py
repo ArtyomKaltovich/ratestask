@@ -137,3 +137,26 @@ def test_very_big_date_range():
         ),
     )
     assert result.status_code == 200
+
+
+def test_less_then_3_prices_for_day():
+    # return an empty value (JSON null) for days on which there are less than 3 prices in total.
+    # orig  dest    day         count(prices)
+    # CNSGH	LVRIX	2016-01-01	1
+    # CNSGH	LVRIX	2016-01-02	1
+    result = httpx.get(
+        URL,
+        params=dict(
+            date_from="2016-01-01",
+            date_to="2016-01-02",
+            origin="CNSHK",
+            destination="LVRIX",
+        ),
+    )
+    assert result.status_code == 200
+    actual = orjson.loads(result.text)
+    expected = [
+        {"average_price": None, "day": "2016-01-01"},
+        {"average_price": None, "day": "2016-01-02"},
+    ]
+    assert actual == expected
