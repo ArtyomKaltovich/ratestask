@@ -7,4 +7,4 @@ class Settings(BaseSettings):
     password: str = "ratestask"
     host: str = "192.168.56.101"
     port: int = 5432
-    debug: bool = True
+    debug: bool = False

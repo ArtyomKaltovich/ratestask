@@ -1,10 +1,10 @@
 import asyncio
 import random
 import string
-from datetime import datetime
 from time import perf_counter
 
 import httpx
+from pydantic import BaseSettings
 
 from routes_api_service.const import RATES_URL
 
@@ -178,6 +178,10 @@ REGIONS = [
 ]
 
 
+class Settings(BaseSettings):
+    url = f"http://127.0.0.1:5000{RATES_URL}"
+
+
 def gen_request_arg(
         ports,
         regions,
@@ -205,7 +209,7 @@ def gen_request_arg(
 
 
 async def main(
-        url=f"http://127.0.0.1:5000{RATES_URL}",
+        url,
         ports=PORTS,
         regions=REGIONS,
         regions_rate=0.1,
@@ -230,4 +234,5 @@ async def main(
 
 
 if __name__ == '__main__':
-    asyncio.run(main())
+    url = Settings().url
+    asyncio.run(main(url))

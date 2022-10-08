@@ -1,6 +1,6 @@
 from routes_api_service.app import create_app
 from routes_api_service.io.rates_repo_postgres.rates_repo_postgres import RatesRepoPostgres
-from routes_api_service.settings import Settings
+from settings import Settings
 
 if __name__ == "__main__":
     settings = Settings()
