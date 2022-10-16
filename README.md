@@ -191,13 +191,13 @@ nox -s black
 ```
 
 > **_NOTE:_**  nox create separated virtual environment for every command
-> at every run. To avoid to add `-r` flag to your commands e.g.:
+> at every run. To avoid it add `-r` flag to your commands e.g.:
 
 ```sh
 nox -s black -r
 ```
 
-To run all checks type:
+To run all checks, type:
 
 ```sh
 nox
@@ -207,4 +207,4 @@ nox
 > http requests to API, and
 > for now nox doesn't support shared virtual environments,
 > so every check will use their own ones.
-> So such command can take some time.
+> So such commands can take some time.
